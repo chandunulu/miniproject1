@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chandu Nulu - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --main-orange: #fd7e14;
+      --hover-orange: #e96b06;
+      --light-bg: #fff8f0;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, var(--light-bg), #fbe2d3);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--main-orange);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+      animation: slideDown 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--light-bg);
+      text-decoration-line: underline;
+    }
+
+    section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h2 {
+      color: var(--main-orange);
+      margin-bottom: 20px;
+    }
+
+    #ab img {
+      width: 150px;
+      height: 150px;
+      border-radius: 0%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      animation: bounceIn 1s ease;
+    }
+
+    ul li {
+      background-color: #ffe8d1;
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 8px;
+      transition: transform 0.3s, background-color 0.3s;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--main-orange);
+      color: white;
+      margin-top: 40px;
+    }
+
+    .content {
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .block {
+      width: 360px;
+      min-height: 340px;
+      border-radius: 14px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease;
+      background-blend-mode: overlay;
+      border: 2px solid transparent;
+    }
+
+    .block:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+      border-color: var(--main-orange);
+    }
+
+    .block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .block:hover::before {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .block * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .block h2 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .block ul {
+      padding-left: 20px;
+    }
+
+    .block ul li {
+      font-size: 15px;
+      list-style-type: disc;
+    }
+
+    button a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: var(--main-orange);
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: var(--hover-orange);
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      from {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .web { background-image: url('web.jpg'); }
+    .python { background-image: url('python.jpg'); }
+    .ai { background-image: url('ai.jpg'); }
+    .java { background-image: url('java.jpg'); }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 10px 10px 0 0;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+      #ab img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .block {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>VaultOfCodes</h1>
+  <nav>
+    <a href="#ab">About</a>
+    <a href="#co">Contact</a>
+    <a href="https://chandunulu.github.io/loginform/">Login</a>
+    <a href="https://chandunulu.github.io/signinform2/">Signin</a>
+  </nav>
+</header>
+
+<section id="ab">
+  <h2>About Us</h2>
+  <img src="vocpic.png" alt="VOC's Photo">
+  <p>
+    VaultofCodes is at the forefront of online education, offering live training programs and courses that span the dynamic landscape of technology. Specializing in Web Development, Data Science and Analytics, UI/UX designing, App Development, Python, and Java Programming.
+  </p>
+
+  <div class="content">
+    <div class="row">
+      <div class="block web">
+        <h2>Web Development Internship</h2>
+        <ul>
+          <li>Duration: 1 to 2 months</li>
+          <li>Mode: Virtual (Work from Home)</li>
+          <li>Stipend: Based on performance</li>
+          <li>Start Date: June 2025</li>
+        </ul>
+      </div>
+
+      <div class="block python">
+        <h2>Python Programming Internship</h2>
+        <ul>
+          <li>Duration: 1 to 2 months</li>
+          <li>Mode: Virtual (Work from Home)</li>
+          <li>Stipend: Based on performance</li>
+          <li>Start Date: June 2025</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="block ai">
+        <h2>App Development Internship</h2>
+        <ul>
+          <li>Duration: 1 to 2 months</li>
+          <li>Mode: Virtual (Work from Home)</li>
+          <li>Stipend: Based on performance</li>
+          <li>Start Date: June 2025</li>
+        </ul>
+      </div>
+
+      <div class="block java">
+        <h2>Java Programming Internship</h2>
+        <ul>
+          <li>Duration: 1 to 2 months</li>
+          <li>Mode: Virtual (Work from Home)</li>
+          <li>Stipend: Based on performance</li>
+          <li>Start Date: June 2025</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p>If you're interested in any of our internships, please register:</p>
+  <button id="registerBtn"><a href="https://chandunulu.github.io/registerform/">Register</a></button>
+</section>
+
+<section id="co">
+  <h2>Contact</h2>
+  <p>📱 WhatsApp: <strong>8096336996</strong></p>
+  <p>📸 Instagram: <strong>@voc</strong></p>
+  <p>📧 Email: <a href="mailto:voc@gmail.com">voc@gmail.com</a></p>
+</section>
+
+<footer>
+  &copy; 2025 VaultOfCodes. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('registerBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    const confirmRegister = confirm("Do you want to go to the registration page?");
+    if (confirmRegister) {
+      window.location.href = "https://chandunulu.github.io/registerform/";
+    }
+  });
+</script>
+
+</body>
+</html>
